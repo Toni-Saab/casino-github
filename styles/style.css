@@ -1,0 +1,733 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter/Inter-Variablet.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --background-dark: #1d1e22;
+    --background-light: #2a2a2e;
+    --background-darker: #131313;
+    --text-white: #fff;
+    --text-yellow: #e5c100;
+    --text-highlight: #f80850;
+    --highlight-red: #ff1140;
+    --button-active: #ff4000;
+    --button-hover: #ff0000;
+    --border-gray: #444;
+    --button-gray: #555;
+    --box-shadow-black: #000;
+    --box-shadow-dark: rgba(0, 0, 0, 0.5);
+    --box-shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-highlight: rgba(255, 0, 106, 0.8);
+    --visible-percentage: 25%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-white);
+}
+
+/* Header ----------------------------------------------------------------------------------------------------------*/
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    height: 20%;
+    background-color: var(--background-darker);
+    border-bottom: 2px solid var(--border-gray);
+}
+
+.header__left-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    gap: 1rem;
+}
+
+.header__logo-container img {
+    height: 5rem;
+    filter: drop-shadow(0 0 10px var(--text-white));
+}
+
+.header__title-container h1 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: bold;
+    color: var(--text-yellow);
+    text-shadow: 2px 2px 5px var(--box-shadow-dark);
+}
+
+.header__right-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    gap: 1rem;
+}
+
+.header__motto-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: var(--text-highlight);
+    text-shadow: 2px 2px 5px var(--box-shadow-dark);
+}
+
+.motto-word {
+    font-weight: 700;
+    padding-left: 3rem;
+}
+
+.motto-word::first-letter {
+    font-size: 2.5rem;
+    color: var(--highlight-red);
+    font-weight: bold;
+    text-shadow: 0 0 15px var(--shadow-highlight);
+}
+
+.header__player-stats-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    gap: 2rem;
+    color: var(--text-white);
+    background: var(--background-light);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px var(--box-shadow-dark);
+}
+
+.value {
+    color: var(--text-yellow);
+}
+
+/* Main ----------------------------------------------------------------------------------------------------------*/
+
+.main {
+    display: flex;
+    flex: 1;
+    background-color: var(--background-dark);
+}
+
+.main__left-side {
+    width: 30%;
+    padding: 1rem;
+    margin: 0;
+    background-color: var(--background-light);
+    box-shadow: inset 0 0 10px var(--box-shadow-black);
+    overflow: hidden;
+    transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.main__right-side {
+    width: 70%;
+    padding: 1rem;
+    background-color: var(--background-light);
+    box-shadow: inset 0 0 10px var(--box-shadow-black)0;
+    flex: 1;
+}
+
+.main.collapsed {
+    background-color: var(--background-dark);
+    padding: 0;
+    margin: 0;
+}
+
+.main.collapsed .main__left-side {
+    width: 15%;
+    transform: translateX(-60%);
+}
+
+.main.collapsed .games-list__item a {
+    color: var(--text-white);
+    border-color: var(--highlight-red);
+    background-color: var(--button-active);
+}
+
+.games-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.games-list__item {
+    margin-bottom: 1rem;
+}
+
+.game-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--text-white);
+    text-transform: uppercase;
+    border: 0.4rem outset var(--highlight-red);
+    background-color: var(--button-gray);
+    border-radius: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px var(--box-shadow-light);
+    pointer-events: none;
+}
+
+.game-name {
+    flex: 1 1 auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.game-icon {
+    height: 1.2em;
+    flex-shrink: 0;
+    margin-left: auto;
+    display: none;
+
+}
+
+.main.collapsed .game-icon {
+    display: block;
+}
+
+/*CSS for "active" buttton ----------------------------------------------------------------------------------------------------------*/
+
+.game-link.active {
+    background-color: var(--button-active);
+    color: var(--text-white);
+    pointer-events: auto;
+    transform: scale(1.05);
+}
+
+.game-link.active:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.08);
+}
+/*CSS for "inactive" buttton ----------------------------------------------------------------------------------------------------------*/
+
+.game-link.inactive {
+    color: #969696;
+    background-color: var(--button-gray);
+    border-color: #000;
+    cursor: not-allowed;
+    text-decoration: line-through;
+    box-shadow: none;
+}
+
+
+
+/*Advertising ----------------------------------------------------------------------------------------------------------*/
+
+.ad-container {
+    display: none;
+    width: 20%;
+    height: 100%;
+    padding: 0;
+    margin-left: -10%;
+    background-color: var(--background-light);
+    box-shadow: inset 0 0 10px var(--box-shadow-black);
+    position: relative;
+    overflow: hidden;
+    align-self: center;
+    background-size: contain;
+    background-repeat: repeat-y;
+    background-position: center;
+}
+
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.comments iframe {
+    width: 100%;
+    height: 100vh;
+    border: none;
+}
+
+.comments__item {
+    display: flex;
+    gap: 1rem;
+    align-items: top;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--border-gray);
+    color: var(--text-white);
+    box-shadow: 0 4px 8px var(--box-shadow-dark);
+}
+
+.avatar-pic {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 5px var(--shadow-highlight);
+}
+
+.comments__text {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+/*Adaptive ----------------------------------------------------------------------------------------------------------*/
+
+@media (max-width: 1024px) {
+    .header__left-side {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .header__logo-container img {
+        height: auto;
+        width: 100%;
+        max-width: 10rem;
+    }
+
+    .header__title-container h1 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin: 0;
+    }
+
+    .header__motto-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .motto-word {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header__logo-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .header__title-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .header__motto-container {
+        gap: 0.5rem;
+        width: 100%;
+        padding-left: 1rem;
+    }
+
+    .motto-word {
+        font-size: 1.5rem;
+        padding-left: 0;
+    }
+
+    .header__player-stats-container {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .header__left-side {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header__logo-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .header__title-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .header__motto-container {
+        align-items: flex-start;
+        padding-left: 1rem;
+    }
+
+    .motto-word {
+        font-size: 1.2rem;
+    }
+
+    .header__player-stats-container {
+        font-size: 1.2rem;
+    }
+
+    .game-link {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .game-icon {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1920px) {
+    .header {
+        padding: 3rem;
+    }
+
+    .header__logo-container img {
+        height: 9rem;
+    }
+
+    .header__title-container h1 {
+        font-size: 5rem;
+    }
+
+    .header__motto-container {
+        font-size: 2.5rem;
+    }
+
+    .header__motto-container .motto-word::first-letter {
+        font-size: 4.5rem;
+    }
+
+    .header__player-stats-container {
+        font-size: 2rem;
+        padding: 3rem;
+    }
+
+    .comments__text {
+        font-size: 1.8rem;
+    }
+
+    .main__left-side, .main__right-side {
+        padding: 3rem;
+    }
+
+    .games-list__item a {
+        font-size: 1.8rem;
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .header {
+        padding: 4rem;
+    }
+
+    .header__logo-container img {
+        height: 12rem;
+    }
+
+    .header__title-container h1 {
+        font-size: 6rem;
+    }
+
+    .header__motto-container {
+        font-size: 3rem;
+    }
+
+    .header__motto-container .motto-word::first-letter {
+        font-size: 6rem;
+    }
+
+    .header__player-stats-container {
+        font-size: 2.5rem;
+        padding: 4rem;
+    }
+
+    .comments__text {
+        font-size: 2rem;
+    }
+
+    .main__left-side, .main__right-side {
+        padding: 4rem;
+    }
+
+    .games-list__item a {
+        font-size: 2rem;
+        padding: 2.5rem;
+    }
+}
+
+@media (min-width: 3840px) {
+    .header {
+        padding: 5rem;
+    }
+
+    .header__logo-container img {
+        height: 15rem;
+    }
+
+    .header__title-container h1 {
+        font-size: 7rem;
+    }
+
+    .header__motto-container {
+        font-size: 3.5rem;
+    }
+
+    .header__motto-container .motto-word::first-letter {
+        font-size: 7.5rem;
+    }
+
+    .header__player-stats-container {
+        font-size: 3rem;
+        padding: 5rem;
+    }
+
+    .comments__text {
+        font-size: 2.5rem;
+    }
+
+    .main__left-side, .main__right-side {
+        padding: 5rem;
+    }
+
+    .games-list__item a {
+        font-size: 2.5rem;
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header__left-side {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .header__logo-container img {
+        height: auto;
+        width: 100%;
+        max-width: 10rem;
+    }
+
+    .header__title-container h1 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin: 0;
+    }
+
+    .header__motto-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .motto-word {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header__logo-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .header__title-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .header__motto-container {
+        gap: 0.5rem;
+        width: 100%;
+        padding-left: 1rem;
+    }
+
+    .motto-word {
+        font-size: 1.5rem;
+        padding-left: 0;
+    }
+
+    .header__player-stats-container {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .header__left-side {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header__logo-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .header__title-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .header__motto-container {
+        align-items: flex-start;
+        padding-left: 1rem;
+    }
+
+    .motto-word {
+        font-size: 1.2rem;
+    }
+
+    .header__player-stats-container {
+        font-size: 1.2rem;
+    }
+
+    .game-link {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .game-icon {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1920px) {
+    .header {
+        padding: 3rem;
+    }
+
+    .header__logo-container img {
+        height: 9rem;
+    }
+
+    .header__title-container h1 {
+        font-size: 5rem;
+    }
+
+    .header__motto-container {
+        font-size: 2.5rem;
+    }
+
+    .header__motto-container .motto-word::first-letter {
+        font-size: 4.5rem;
+    }
+
+    .header__player-stats-container {
+        font-size: 2rem;
+        padding: 3rem;
+    }
+
+    .comments__text {
+        font-size: 1.8rem;
+    }
+
+    .main__left-side, .main__right-side {
+        padding: 3rem;
+    }
+
+    .games-list__item a {
+        font-size: 1.8rem;
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .header {
+        padding: 4rem;
+    }
+
+    .header__logo-container img {
+        height: 12rem;
+    }
+
+    .header__title-container h1 {
+        font-size: 6rem;
+    }
+
+    .header__motto-container {
+        font-size: 3rem;
+    }
+
+    .header__motto-container .motto-word::first-letter {
+        font-size: 6rem;
+    }
+
+    .header__player-stats-container {
+        font-size: 2.5rem;
+        padding: 4rem;
+    }
+
+    .comments__text {
+        font-size: 2rem;
+    }
+
+    .main__left-side, .main__right-side {
+        padding: 4rem;
+    }
+
+    .games-list__item a {
+        font-size: 2rem;
+        padding: 2.5rem;
+    }
+}
+
+@media (min-width: 3840px) {
+    .header {
+        padding: 5rem;
+    }
+
+    .header__logo-container img {
+        height: 15rem;
+    }
+
+    .header__title-container h1 {
+        font-size: 7rem;
+    }
+
+    .header__motto-container {
+        font-size: 3.5rem;
+    }
+
+    .header__motto-container .motto-word::first-letter {
+        font-size: 7.5rem;
+    }
+
+    .header__player-stats-container {
+        font-size: 3rem;
+        padding: 5rem;
+    }
+
+    .comments__text {
+        font-size: 2.5rem;
+    }
+
+    .main__left-side, .main__right-side {
+        padding: 5rem;
+    }
+
+    .games-list__item a {
+        font-size: 2.5rem;
+        padding: 3rem;
+    }
+}
