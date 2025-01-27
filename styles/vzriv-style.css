@@ -18,6 +18,7 @@ body, html {
     background: linear-gradient(135deg, #2c3e50, #8e44ad);
     color: #fff;
     font-family: 'Inter', sans-serif;
+    font-size: 16px;
 }
 
 .game-container {
@@ -35,13 +36,13 @@ body, html {
     color: #fff;
     border: 0.3rem solid #fff;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
     animation: rotate 15s linear infinite, gradientChange 5s ease infinite;
     transition: background 2s ease;
     border-radius: 50%;
-    width: 12.5rem;
-    height: 12.5rem;
+    width: 10rem;
+    height: 10rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,22 +78,22 @@ body, html {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 1.25rem;
-    width: 80vw;
-    height: 80vh;
+    gap: 2rem;
+    width: 80%;
+    height: 80%;
     margin-top: 2rem;
-    perspective: 62.5rem;
+    perspective: 62rem;
 }
 
 .grid-item {
-    perspective: 62.5rem;
+    perspective: 62rem;
     cursor: pointer;
     position: relative;
     transition: transform 0.3s, opacity 0.5s ease;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
-    border-radius: 0.625rem;
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+    border-radius: 0.8rem;
     background: #4b0082;
-    border: 0.19rem dashed #fff;
+    border: 0.3rem dashed #fff;
 }
 
 .grid-item:hover {
@@ -106,12 +107,12 @@ body, html {
     justify-content: center;
     align-items: center;
     background: #4b0082;
-    border-radius: 0.625rem;
+    border-radius: 0.8rem;
     font-size: 2rem;
     position: absolute;
     backface-visibility: hidden;
     transition: transform 0.6s, background 0.3s;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
 .grid-item__front img {
@@ -123,7 +124,7 @@ body, html {
 
 .grid-item .grid-item__back {
     color: #fff;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .grid-item.flip .grid-item__front {
@@ -145,3 +146,222 @@ body, html {
     0%, 100% { opacity: 0; }
     50% { opacity: 1; }
 }
+
+.game-container {
+    transition: all 0.3s ease;
+}
+
+.grid-item__back span {
+
+}
+
+/* Media query for 390 x 844 */
+@media only screen and (max-width: 390px) {
+    .start-button {
+        width: 12rem;
+        height: 12rem;
+        font-size: 1.5rem;
+        border-width: 0.2rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 2rem;
+    }
+    .grid-item {
+        border-width: 0.2rem;
+    }
+    .end-round-message {
+        font-size: 1.8rem;
+    }
+}
+
+/* Media query for VGA — 640×480 */
+@media only screen and (min-width: 391px) and (max-width: 640px) {
+    .start-button {
+        width: 14rem;
+        height: 14rem;
+        font-size: 1.8rem;
+        border-width: 0.3rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 2.2rem;
+    }
+    .grid-item {
+        border-width: 0.3rem;
+    }
+    .end-round-message {
+        font-size: 2rem;
+    }
+}
+
+/* Media query for SVGA — 800×600 */
+@media only screen and (min-width: 641px) and (max-width: 800px) {
+    .start-button {
+        width: 16rem;
+        height: 16rem;
+        font-size: 2.3rem;
+        border-width: 0.4rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 2.4rem;
+    }
+    .grid-item {
+        border-width: 0.4rem;
+    }
+    .end-round-message {
+        font-size: 2rem;
+    }
+}
+
+/* Media query for XGA — 1024×768 */
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+    .start-button {
+        width: 18rem;
+        height: 18rem;
+        font-size: 2.5rem;
+        border-width: 0.5rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 2.6rem;
+    }
+    .grid-item {
+        border-width: 0.5rem;
+    }
+    .end-round-message {
+        font-size: 2.5rem;
+    }
+}
+
+/* Media query for HD 720p — 1280×720 */
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+    .start-button {
+        width: 20rem;
+        height: 20rem;
+        font-size: 2.8rem;
+        border-width: 0.6rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 2.8rem;
+    }
+    .grid-item {
+        border-width: 0.6rem;
+    }
+    .end-round-message {
+        font-size: 3rem;
+    }
+}
+
+/* Media query for UXGA — 1600×1200 */
+@media only screen and (min-width: 1281px) and (max-width: 1600px) {
+    .start-button {
+        width: 30rem;
+        height: 30rem;
+        font-size: 3rem;
+        border-width: 0.6rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 3rem;
+    }
+    .grid-item {
+        border-width: 0.6rem;
+    }
+    .end-round-message {
+        font-size: 4rem;
+    }
+}
+
+/* Media query for Full HD 1080p — 1920×1080 */
+@media only screen and (min-width: 1601px) and (max-width: 1920px) {
+    .start-button {
+        width: 40rem;
+        height: 40rem;
+        font-size: 3.2rem;
+        border-width: 0.7rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 5.5rem;
+    }
+    .grid-item {
+        border-width: 0.7rem;
+    }
+    .end-round-message {
+        font-size: 5rem;
+    }
+}
+
+/* Media query for QHD — 2560×1440 */
+@media only screen and (min-width: 1921px) and (max-width: 2560px) {
+    .start-button {
+        width: 50rem;
+        height: 50rem;
+        font-size: 3.5rem;
+        border-width: 0.8rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 3.5rem;
+    }
+    .grid-item {
+        border-width: 0.8rem;
+    }
+    .end-round-message {
+        font-size: 7rem;
+    }
+}
+
+/* Media query for QUXGA — 3200×2400 */
+@media only screen and (min-width: 2561px) and (max-width: 3200px) {
+    .start-button {
+        width: 60rem;
+        height: 60rem;
+        font-size: 4rem;
+        border-width: 1rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 4rem;
+    }
+    .grid-item {
+        border-width: 1rem;
+    }
+    .end-round-message {
+        font-size: 8rem;
+    }
+}
+
+/* Media query for Ultra-HD — 4096×2160 */
+@media only screen and (min-width: 3201px) and (max-width: 4096px) {
+    .start-button {
+        width: 80rem;
+        height: 80rem;
+        font-size: 30rem;
+        border-width: 1rem;
+    }
+    .grid-container {
+        width: 80%;
+        height: 80%;
+        gap: 5rem;
+    }
+    .grid-item {
+        border-width: 1rem;
+    }
+    .end-round-message {
+        font-size: 10rem;
+    }
+}
+

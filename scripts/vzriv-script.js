@@ -37,19 +37,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const positiveIndices = getRandomUniqueIndices(allIndices, 2);
 
         freeSpinIndices.forEach(function(index) {
-            results[index] = '<span style="color: gold; font-size: 3rem;">+1 Фриспин</span>';
+            results[index] = '<span style="color: gold;">+1 Фриспин</span>';
         });
 
         negativeIndices.forEach(function(index) {
-            results[index] = '<span style="color: red; font-size: 3rem;">' + getRandomInt(-50, -10) + '</span>';
+            results[index] = '<span style="color: red;">' + getRandomInt(-50, -10) + '</span>';
         });
 
         positiveIndices.forEach(function(index) {
-            results[index] = '<span style="color: green; font-size: 3rem;">' + getRandomInt(10, 50) + '</span>';
+            results[index] = '<span style="color: green;">' + getRandomInt(10, 50) + '</span>';
         });
 
         const remainingIndex = allIndices[0];
-        results[remainingIndex] = '<span style="color: #fff; font-size: 3rem;">Пусто</span>';
+        results[remainingIndex] = '<span style="color: #fff;">Пусто</span>';
     }
 
     function getRandomUniqueIndices(allIndices, count) {
@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.classList.add('flip');
                 item.querySelector('.grid-item__back').innerHTML = results[index];
 
+                adjustFontSize();
+
                 if (results[index].includes('Фриспин')) {
                     freeSpins++;
                 } else if (results[index].includes('Пусто')) {
@@ -90,6 +92,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+    }
+
+    function adjustFontSize() {
+        const spans = document.querySelectorAll('.grid-item__back span');
+        const screenWidth = window.innerWidth;
+
+        spans.forEach(span => {
+            if (screenWidth <= 390) {
+                span.style.fontSize = '1.4rem';
+            } else if (screenWidth <= 640) {
+                span.style.fontSize = '1.6rem';
+            } else if (screenWidth <= 800) {
+                span.style.fontSize = '1.8rem';
+            } else if (screenWidth <= 1024) {
+                span.style.fontSize = '2rem';
+            } else if (screenWidth <= 1280) {
+                span.style.fontSize = '2.5rem';
+            } else if (screenWidth <= 1600) {
+                span.style.fontSize = '3rem';
+            } else if (screenWidth <= 1920) {
+                span.style.fontSize = '4rem';
+            } else if (screenWidth <= 2560) {
+                span.style.fontSize = '5.5rem';
+            } else if (screenWidth <= 3200) {
+                span.style.fontSize = '6rem';
+            } else {
+                span.style.fontSize = '10rem';
+            }
+        });
     }
 
     function endRoundSequence() {
@@ -137,4 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     window.parent.postMessage({ requestInitialData: true }, '*');
+    window.addEventListener('resize', adjustFontSize);
+    adjustFontSize();
 });
