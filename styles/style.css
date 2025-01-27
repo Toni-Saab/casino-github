@@ -289,445 +289,312 @@ html, body {
 }
 
 /*Adaptive ----------------------------------------------------------------------------------------------------------*/
+.header, .main {
+    transition: all 0.3s ease;
+}
 
-@media (max-width: 1024px) {
+@media (min-width: 1600px) and (max-width: 1919px) {
+    .header {
+        height: 15%;
+    }
     .header__left-side {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        width: 25%;
     }
-
+    .header__right-side {
+        width: 75%;
+    }
     .header__logo-container img {
-        height: auto;
-        width: 100%;
-        max-width: 10rem;
+        height: 4rem;
     }
-
     .header__title-container h1 {
-        font-size: 2.2rem;
-        text-align: center;
-        margin: 0;
+        font-size: 2.5rem;
     }
-
-    .header__motto-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .motto-word {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .header__logo-container img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .header__title-container h1 {
-        font-size: 1.8rem;
-    }
-
-    .header__motto-container {
-        gap: 0.5rem;
-        width: 100%;
-        padding-left: 1rem;
-    }
-
-    .motto-word {
-        font-size: 1.5rem;
-        padding-left: 0;
-    }
-
-    .header__player-stats-container {
+    .header__motto-container, .header__player-stats-container {
         font-size: 1.2rem;
     }
+    .main__left-side {
+        width: 25%;
+    }
+    .main__right-side {
+        width: 75%;
+    }
+    .comments__item {
+        padding: 0.5rem;
+    }
+    .comments__text {
+        font-size: 0.9rem;
+    }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1920px) and (max-width: 2559px) {
     .header {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        height: 15%;
     }
-
     .header__left-side {
-        width: 100%;
-        text-align: center;
+        width: 25%;
     }
-
+    .header__right-side {
+        width: 75%;
+    }
     .header__logo-container img {
-        max-width: 100%;
-        height: auto;
+        height: 4rem;
     }
-
     .header__title-container h1 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
-
-    .header__motto-container {
-        align-items: flex-start;
-        padding-left: 1rem;
-    }
-
-    .motto-word {
+    .header__motto-container, .header__player-stats-container {
         font-size: 1.2rem;
     }
+    .main__left-side {
+        width: 25%;
+    }
+    .main__right-side {
+        width: 75%;
+    }
+    .comments__item {
+        padding: 0.5rem;
+    }
+    .comments__text {
+        font-size: 0.9rem;
+    }
+}
 
-    .header__player-stats-container {
+@media (min-width: 2560px) and (max-width: 3099px) {
+    .header {
+        height: 12%;
+    }
+    .header__logo-container img {
+        height: 3.5rem;
+    }
+    .header__title-container h1 {
+        font-size: 2.5rem;
+    }
+    .header__motto-container, .header__player-stats-container {
         font-size: 1.2rem;
     }
-
-    .game-link {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
+    .main__left-side {
+        width: 25%;
     }
-
-    .game-icon {
-        margin-left: 0;
+    .main__right-side {
+        width: 75%;
+    }
+    .comments__item {
+        padding: 0.5rem;
+    }
+    .comments__text {
+        font-size: 0.9rem;
     }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 3100px) and (max-width: 3839px) {
     .header {
-        padding: 3rem;
+        height: 12%;
     }
-
     .header__logo-container img {
-        height: 9rem;
+        height: 3.5rem;
     }
-
     .header__title-container h1 {
-        font-size: 5rem;
-    }
-
-    .header__motto-container {
         font-size: 2.5rem;
     }
-
-    .header__motto-container .motto-word::first-letter {
-        font-size: 4.5rem;
+    .header__motto-container, .header__player-stats-container {
+        font-size: 1.2rem;
     }
-
-    .header__player-stats-container {
-        font-size: 2rem;
-        padding: 3rem;
+    .main__left-side {
+        width: 25%;
     }
-
+    .main__right-side {
+        width: 75%;
+    }
+    .comments__item {
+        padding: 0.5rem;
+    }
     .comments__text {
-        font-size: 1.8rem;
-    }
-
-    .main__left-side, .main__right-side {
-        padding: 3rem;
-    }
-
-    .games-list__item a {
-        font-size: 1.8rem;
-        padding: 2rem;
+        font-size: 0.9rem;
     }
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 3840px) and (max-width: 7679px) {
     .header {
-        padding: 4rem;
+        height: 10%;
     }
-
     .header__logo-container img {
-        height: 12rem;
+        height: 3rem;
     }
-
     .header__title-container h1 {
-        font-size: 6rem;
-    }
-
-    .header__motto-container {
-        font-size: 3rem;
-    }
-
-    .header__motto-container .motto-word::first-letter {
-        font-size: 6rem;
-    }
-
-    .header__player-stats-container {
         font-size: 2.5rem;
-        padding: 4rem;
     }
-
+    .header__motto-container, .header__player-stats-container {
+        font-size: 1.2rem;
+    }
+    .main__left-side {
+        width: 25%;
+    }
+    .main__right-side {
+        width: 75%;
+    }
+    .comments__item {
+        padding: 0.5rem;
+    }
     .comments__text {
-        font-size: 2rem;
-    }
-
-    .main__left-side, .main__right-side {
-        padding: 4rem;
-    }
-
-    .games-list__item a {
-        font-size: 2rem;
-        padding: 2.5rem;
+        font-size: 0.9rem;
     }
 }
 
-@media (min-width: 3840px) {
+@media (min-width: 7680px) {
     .header {
-        padding: 5rem;
+        height: 8%;
     }
-
     .header__logo-container img {
-        height: 15rem;
+        height: 3rem;
     }
-
     .header__title-container h1 {
-        font-size: 7rem;
+        font-size: 2.5rem;
     }
-
-    .header__motto-container {
-        font-size: 3.5rem;
+    .header__motto-container, .header__player-stats-container {
+        font-size: 1.2rem;
     }
-
-    .header__motto-container .motto-word::first-letter {
-        font-size: 7.5rem;
+    .main__left-side {
+        width: 25%;
     }
-
-    .header__player-stats-container {
-        font-size: 3rem;
-        padding: 5rem;
+    .main__right-side {
+        width: 75%;
     }
-
+    .comments__item {
+        padding: 0.5rem;
+    }
     .comments__text {
-        font-size: 2.5rem;
+        font-size: 0.9rem;
     }
+}
 
-    .main__left-side, .main__right-side {
-        padding: 5rem;
+@media (max-width: 1280px) {
+    .main.collapsed .main__left-side {
+        transform: translateX(-50%);
     }
-
-    .games-list__item a {
-        font-size: 2.5rem;
-        padding: 3rem;
+    .main__left-side {
+        width: 35%;
+    }
+    .main__right-side {
+        width: 65%;
+    }
+    .header__logo-container img {
+        height: 3.5rem;
+    }
+    .header__title-container h1 {
+        font-size: 2rem;
+    }
+    .header__motto-container, .header__player-stats-container {
+        font-size: 1rem;
+    }
+    .comments__item {
+        padding: 0.5rem;
+    }
+    .comments__text {
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 1024px) {
-    .header__left-side {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+    .main.collapsed .main__left-side {
+        transform: translateX(-45%);
     }
-
+    .main__left-side {
+        width: 40%;
+    }
+    .main__right-side {
+        width: 60%;
+    }
     .header__logo-container img {
-        height: auto;
-        width: 100%;
-        max-width: 10rem;
+        height: 3.5rem;
     }
-
     .header__title-container h1 {
-        font-size: 2.2rem;
-        text-align: center;
-        margin: 0;
+        font-size: 2rem;
+    }
+    .header__motto-container, .header__player-stats-container {
+        font-size: 1rem;
+    }
+    .comments__item {
+        padding: 0.5rem;
+    }
+    .comments__text {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .main.collapsed .main__left-side {
+        transform: translateX(-40%);
+    }
+    .main__left-side {
+        width: 45%;
+    }
+    .main__right-side {
+        width: 55%;
+    }
+    .header__logo-container img {
+        height: 3rem;
+    }
+    .header__title-container h1 {
+        font-size: 1.5rem;
+    }
+    .header__motto-container, .header__player-stats-container {
+        font-size: 0.8rem;
+    }
+    .comments__item {
+        padding: 0.5rem;
+    }
+    .comments__text {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 640px)  {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 33vh;
+        padding: 10px;
     }
 
-    .header__motto-container {
+    .header__left-side {
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 5px;
+        flex-shrink: 0;
     }
 
-    .motto-word {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .header__logo-container img {
-        max-width: 100%;
+    .header__logo-container {
+        width: 50px;
         height: auto;
     }
 
-    .header__title-container h1 {
-        font-size: 1.8rem;
+    .header__title-container {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .header__right-side {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
     }
 
     .header__motto-container {
-        gap: 0.5rem;
-        width: 100%;
-        padding-left: 1rem;
-    }
-
-    .motto-word {
-        font-size: 1.5rem;
-        padding-left: 0;
-    }
-
-    .header__player-stats-container {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-    }
-
-    .header__left-side {
-        width: 100%;
+        font-size: 12px;
         text-align: center;
     }
 
-    .header__logo-container img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .header__title-container h1 {
-        font-size: 1.5rem;
-    }
-
-    .header__motto-container {
-        align-items: flex-start;
-        padding-left: 1rem;
-    }
-
-    .motto-word {
-        font-size: 1.2rem;
-    }
-
     .header__player-stats-container {
-        font-size: 1.2rem;
-    }
-
-    .game-link {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .game-icon {
-        margin-left: 0;
-    }
-}
-
-@media (min-width: 1920px) {
-    .header {
-        padding: 3rem;
-    }
-
-    .header__logo-container img {
-        height: 9rem;
-    }
-
-    .header__title-container h1 {
-        font-size: 5rem;
-    }
-
-    .header__motto-container {
-        font-size: 2.5rem;
-    }
-
-    .header__motto-container .motto-word::first-letter {
-        font-size: 4.5rem;
-    }
-
-    .header__player-stats-container {
-        font-size: 2rem;
-        padding: 3rem;
-    }
-
-    .comments__text {
-        font-size: 1.8rem;
-    }
-
-    .main__left-side, .main__right-side {
-        padding: 3rem;
-    }
-
-    .games-list__item a {
-        font-size: 1.8rem;
-        padding: 2rem;
-    }
-}
-
-@media (min-width: 2560px) {
-    .header {
-        padding: 4rem;
-    }
-
-    .header__logo-container img {
-        height: 12rem;
-    }
-
-    .header__title-container h1 {
-        font-size: 6rem;
-    }
-
-    .header__motto-container {
-        font-size: 3rem;
-    }
-
-    .header__motto-container .motto-word::first-letter {
-        font-size: 6rem;
-    }
-
-    .header__player-stats-container {
-        font-size: 2.5rem;
-        padding: 4rem;
-    }
-
-    .comments__text {
-        font-size: 2rem;
-    }
-
-    .main__left-side, .main__right-side {
-        padding: 4rem;
-    }
-
-    .games-list__item a {
-        font-size: 2rem;
-        padding: 2.5rem;
-    }
-}
-
-@media (min-width: 3840px) {
-    .header {
-        padding: 5rem;
-    }
-
-    .header__logo-container img {
-        height: 15rem;
-    }
-
-    .header__title-container h1 {
-        font-size: 7rem;
-    }
-
-    .header__motto-container {
-        font-size: 3.5rem;
-    }
-
-    .header__motto-container .motto-word::first-letter {
-        font-size: 7.5rem;
-    }
-
-    .header__player-stats-container {
-        font-size: 3rem;
-        padding: 5rem;
-    }
-
-    .comments__text {
-        font-size: 2.5rem;
-    }
-
-    .main__left-side, .main__right-side {
-        padding: 5rem;
-    }
-
-    .games-list__item a {
-        font-size: 2.5rem;
-        padding: 3rem;
+        font-size: 12px;
+        text-align: right;
     }
 }
