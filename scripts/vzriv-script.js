@@ -97,31 +97,34 @@ document.addEventListener('DOMContentLoaded', function() {
     function adjustFontSize() {
         const spans = document.querySelectorAll('.grid-item__back span');
         const screenWidth = window.innerWidth;
-
-        spans.forEach(span => {
-            if (screenWidth <= 390) {
-                span.style.fontSize = '1.4rem';
-            } else if (screenWidth <= 640) {
-                span.style.fontSize = '1.6rem';
-            } else if (screenWidth <= 800) {
-                span.style.fontSize = '1.8rem';
-            } else if (screenWidth <= 1024) {
-                span.style.fontSize = '2rem';
-            } else if (screenWidth <= 1280) {
-                span.style.fontSize = '2.5rem';
-            } else if (screenWidth <= 1600) {
-                span.style.fontSize = '3rem';
-            } else if (screenWidth <= 1920) {
-                span.style.fontSize = '4rem';
-            } else if (screenWidth <= 2560) {
-                span.style.fontSize = '5.5rem';
-            } else if (screenWidth <= 3200) {
-                span.style.fontSize = '6rem';
-            } else {
-                span.style.fontSize = '10rem';
+    
+        const fontSizeMap = {
+            3200: '8rem',
+            2560: '6rem',
+            1920: '4rem',
+            1600: '3rem',
+            1280: '2.5rem',
+            1024: '2rem',
+            800: '1.8rem',
+            640: '1.6rem',
+            390: '1.4rem'
+        };
+    
+        let selectedFontSize = '1.2rem';
+    
+        for (const [width, fontSize] of Object.entries(fontSizeMap)) {
+            if (screenWidth <= width) {
+                selectedFontSize = fontSize;
+                break;
             }
+        }
+    
+        spans.forEach(span => {
+            span.style.fontSize = selectedFontSize;
         });
     }
+    
+    
 
     function endRoundSequence() {
         setTimeout(function() {
